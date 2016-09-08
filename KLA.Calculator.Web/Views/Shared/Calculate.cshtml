@@ -1,0 +1,38 @@
+﻿@model double?
+
+@using (Html.BeginForm("Calculate", "Calculator"))
+{
+    <div id="calculator" class="col-md-12 container-fluid">
+        <div class="">
+            <div class="well  result">@Model</div>
+        </div>
+        <div class="row">
+            <div class="row">
+                <input type="button" class="col-sm-3 btn btn-default btn-sq calculator" value="7" />
+                <input type="button" class="col-sm-3 btn btn-default btn-sq calculator" value="8" />
+                <input type="button" class="col-sm-3 btn btn-default btn-sq calculator" value="9" />
+                <input type="button" class="col-sm-3 btn btn-warning btn-sq calculator" value="+" />
+            </div>
+            <div class="row">
+                <input type="button" class="col-sm-3 btn btn-default btn-sq calculator" value="4" />
+                <input type="button" class="col-sm-3 btn btn-default btn-sq calculator" value="5" />
+                <input type="button" class="col-sm-3 btn btn-default btn-sq calculator" value="6" />
+                <input type="button" class="col-sm-3 btn btn-primary btn-sq calculator" value="-" />
+            </div>
+            <div class="row">
+                <input type="button" class="col-sm-3 btn btn-default btn-sq calculator" value="1" />
+                <input type="button" class="col-sm-3 btn btn-default btn-sq calculator" value="2" />
+                <input type="button" class="col-sm-3 btn btn-default btn-sq calculator" value="3" />
+                <input type="button" class="col-sm-3 btn btn-warning btn-sq calculator" value="*" />
+            </div>
+            <div class="row">
+                <input type="button" class="col-sm-3 btn btn-default btn-sq calculator" value="0" />
+                <input type="button" class="col-sm-3 btn btn-default btn-sq calculator" value="." />
+                <input type="button" id="calculate" class="col-sm-3 btn btn-danger btn-sq" value="=" />
+                <input type="button" class="col-sm-3 btn btn-primary btn-sq calculator" value="/"/>
+                <input type="button" id="clearCalc" class="btn btn-info btn-sq"  value="clear" />
+
+            </div>
+        </div>
+    </div>
+}

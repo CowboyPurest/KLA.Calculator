@@ -21,9 +21,9 @@ namespace KLA.Calculator.Services
 
         public double CalculateExpression(string expression)
         {
-            var result = this._dataTable.Compute(expression, null);
             try
             {
+                var result = this._dataTable.Compute(expression, null);
                 return Convert.ToDouble(result); //cast the result to a double
             }
             catch (Exception)

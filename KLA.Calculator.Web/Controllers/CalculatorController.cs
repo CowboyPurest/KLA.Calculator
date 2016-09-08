@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using KLA.Calculator.Services;
@@ -16,17 +17,32 @@ namespace KLA.Calculator.Web.Controllers
              this._calculatorService = new CalculatorService();
         }
         
+         [ChildActionOnly]
         // GET: Calculator
         public PartialViewResult Calculate()
         {
-            return this.PartialView(0.00);
+            return this.PartialView();
         }
-
+       
         [HttpPost]
-        public PartialViewResult Calculate(string expression)
+        public JsonResult Calculate(string expression)
         {
-            var result = this._calculatorService.CalculateExpression(expression);
-            return PartialView(result);
+            try
+            {
+                var result = this._calculatorService.CalculateExpression(expression);
+                if (double.IsPositiveInfinity(result) || double.IsNegativeInfinity(result)) throw new Exception("Divid by zero");
+
+
+                return Json(result, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+                Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                return Json("Please check your entry for errors");
+
+            }
+
+           
         }
     }
 }

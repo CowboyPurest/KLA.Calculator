@@ -18,6 +18,7 @@ namespace KLA.Calculator.Services.Tests
          [InlineData("25/5", 5)]  
          [InlineData("5*5", 25)]  
          [InlineData("(4.0+4.0)*2", 16)]
+         [InlineData("98788×3")]
 
         public void IntCalculatorTest(string expression, int expected)
          {
