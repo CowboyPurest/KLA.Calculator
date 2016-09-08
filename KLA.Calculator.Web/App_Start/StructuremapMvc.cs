@@ -22,35 +22,36 @@ using WebActivatorEx;
 [assembly: PreApplicationStartMethod(typeof(StructuremapMvc), "Start")]
 [assembly: ApplicationShutdownMethod(typeof(StructuremapMvc), "End")]
 
-namespace KLA.Calculator.Web.App_Start {
-	using System.Web.Mvc;
+namespace KLA.Calculator.Web.App_Start
+{
+    using KLA.Calculator.Web.DependencyResolution;
+    using Microsoft.Web.Infrastructure.DynamicModuleHelper;
+    using StructureMap;
+    using System.Web.Mvc;
 
-	using Microsoft.Web.Infrastructure.DynamicModuleHelper;
+    public static class StructuremapMvc
+    {
+        #region Public Properties
 
-	using KLA.Calculator.Web.DependencyResolution;
+        public static StructureMapDependencyScope StructureMapDependencyScope { get; set; }
 
-	using StructureMap;
-	
-	public static class StructuremapMvc {
-		#region Public Properties
+        #endregion Public Properties
 
-		public static StructureMapDependencyScope StructureMapDependencyScope { get; set; }
+        #region Public Methods and Operators
 
-		#endregion
-		
-		#region Public Methods and Operators
-		
-		public static void End() {
-			StructureMapDependencyScope.Dispose();
-		}
-		
-		public static void Start() {
-			IContainer container = IoC.Initialize();
-			StructureMapDependencyScope = new StructureMapDependencyScope(container);
-			DependencyResolver.SetResolver(StructureMapDependencyScope);
-			DynamicModuleUtility.RegisterModule(typeof(StructureMapScopeModule));
-		}
+        public static void End()
+        {
+            StructureMapDependencyScope.Dispose();
+        }
 
-		#endregion
-	}
+        public static void Start()
+        {
+            IContainer container = IoC.Initialize();
+            StructureMapDependencyScope = new StructureMapDependencyScope(container);
+            DependencyResolver.SetResolver(StructureMapDependencyScope);
+            DynamicModuleUtility.RegisterModule(typeof(StructureMapScopeModule));
+        }
+
+        #endregion Public Methods and Operators
+    }
 }

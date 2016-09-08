@@ -1,8 +1,6 @@
-﻿
-using System.Web.Mvc;
+﻿using KLA.Calculator.Web.Controllers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using KLA.Calculator.Web;
-using KLA.Calculator.Web.Controllers;
+using System.Web.Mvc;
 
 namespace KLA.Calculator.Web.Tests.Controllers
 {
@@ -21,6 +19,5 @@ namespace KLA.Calculator.Web.Tests.Controllers
             // Assert
             Assert.IsNotNull(result);
         }
-        
     }
 }

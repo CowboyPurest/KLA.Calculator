@@ -15,12 +15,14 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-
-namespace KLA.Calculator.Web.DependencyResolution {
+namespace KLA.Calculator.Web.DependencyResolution
+{
     using StructureMap;
-	
-    public static class IoC {
-        public static IContainer Initialize() {
+
+    public static class IoC
+    {
+        public static IContainer Initialize()
+        {
             return new Container(c => c.AddRegistry<DefaultRegistry>());
         }
     }

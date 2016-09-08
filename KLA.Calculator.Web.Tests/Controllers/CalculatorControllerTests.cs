@@ -13,7 +13,6 @@ namespace KLA.Calculator.Web.Tests.Controllers
         [InlineData("4*4", 16)]
         [InlineData("4/4", 1)]
         [InlineData("4.0/4", 1)]
-
         public void CalculatePostTest(string expression, double expexted)
         {
             ICalculatorService calcservice = new CalculatorService();
@@ -23,10 +22,8 @@ namespace KLA.Calculator.Web.Tests.Controllers
             // Act
             var result = controller.Calculate(expression);
 
-            var model = result.Model;
-
             //Assert that a double is returned
-            Assert.IsType<double>(model);
+            Assert.IsType<double>(result.Data);
 
             // Assert that a view is returned
             Assert.NotNull(result);

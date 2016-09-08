@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using KLA.Calculator.Services.Contracts;
+using System;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using KLA.Calculator.Services.Contracts;
 
 namespace KLA.Calculator.Services
 {
@@ -14,9 +10,7 @@ namespace KLA.Calculator.Services
 
         public CalculatorService()
         {
-          
             _dataTable = new DataTable();
-            
         }
 
         public double CalculateExpression(string expression)
@@ -27,15 +21,13 @@ namespace KLA.Calculator.Services
                 return Convert.ToDouble(result); //cast the result to a double
             }
             catch (Exception)
-            { 
+            {
                 throw new ArgumentException("The expression did not return something that could not be cast to a double");
-            }  
-
+            }
         }
 
-
         /// <summary>
-        /// Dispose of the datatable to free resources 
+        /// Dispose of the datatable to free resources
         /// </summary>
         public void Dispose()
         {
