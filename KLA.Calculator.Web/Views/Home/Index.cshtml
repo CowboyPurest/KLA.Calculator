@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Calculator";
+}
+
+<div class="jumbotron">
+    <h1>@ViewBag.Title</h1>
+    <p class="lead">A Demo Application for a basic calculator</p>
+</div>
+<div class="row">
+    <div class="panel col-lg-12">
+        <div class="panel-body col-md-6">
+            @{ Html.RenderAction("Calculate", "Calculator"); }
+        </div>
+    </div>
+</div>

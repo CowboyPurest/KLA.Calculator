@@ -1,0 +1,45 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using KLA.Calculator.Services.Contracts;
+
+namespace KLA.Calculator.Services
+{
+    public class CalculatorService : IDisposable, ICalculatorService
+    {
+        private DataTable _dataTable;
+
+        public CalculatorService()
+        {
+          
+            _dataTable = new DataTable();
+            
+        }
+
+        public double CalculateExpression(string expression)
+        {
+            var result = this._dataTable.Compute(expression, null);
+            try
+            {
+                return Convert.ToDouble(result); //cast the result to a double
+            }
+            catch (Exception)
+            { 
+                throw new ArgumentException("The expression did not return something that could not be cast to a double");
+            }  
+
+        }
+
+
+        /// <summary>
+        /// Dispose of the datatable to free resources 
+        /// </summary>
+        public void Dispose()
+        {
+            this._dataTable.Dispose();
+        }
+    }
+}

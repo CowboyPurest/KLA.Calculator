@@ -1,0 +1,37 @@
+﻿@model double
+
+@using (Html.BeginForm("Calculate", "Calculator"))
+{
+    <div id="calculator" class="col-md-12 container-fluid">
+        <div class="row">
+            <div class="well result">0</div>
+        </div>
+        <div class="">
+            <div class="row">
+                <input type="button" class="col-sm-3 btn btn-default btn-sq calculator" value="7"/>
+                <input type="button" class="col-sm-3 btn btn-default btn-sq calculator" value="8"/>
+                <input type="button" class="col-sm-3 btn btn-default btn-sq calculator" value="9"/>
+                <input type="button" class="col-sm-3 btn btn-warning btn-sq calculator" value="+"/>
+            </div>
+            <div class="row">
+                <input type="button" class="col-sm-3 btn btn-default btn-sq calculator" value="4"/>
+                <input type="button" class="col-sm-3 btn btn-default btn-sq calculator" value="5"/>
+                <input type="button" class="col-sm-3 btn btn-default btn-sq calculator" value="6"/>
+                <input type="button" class="col-sm-3 btn btn-primary btn-sq calculator" value="-"/>
+            </div>
+            <div class="row">
+                <input type="button" class="col-sm-3 btn btn-default btn-sq calculator" value="1"/>
+                <input type="button" class="col-sm-3 btn btn-default btn-sq calculator" value="2"/>
+                <input type="button" class="col-sm-3 btn btn-default btn-sq calculator" value="3"/>
+                <input type="button" class="col-sm-3 btn btn-warning btn-sq calculator" value="&times;"/>
+            </div>
+            <div class="row">
+                <input type="button" class="col-sm-3 btn btn-default btn-sq calculator" value="0"/>
+                <input type="button" class="col-sm-3 btn btn-default btn-sq calculator" value="."/>
+                <input type="submit" class="col-sm-3 btn btn-danger btn-sq calculator" value="="/>
+                <input type="button" class="col-sm-3 btn btn-primary btn-sq calculator" value="&divide;"/>
+            </div>
+        </div>
+    </div>
+}
+
